@@ -7,7 +7,7 @@ from django.db import models
 class Shoes(models.Model):
     img = models.ImageField(upload_to='media/shoes/', null=True, blank=True)
     title = models.CharField(max_length=200)
-    money = models.DecimalField(max_digits=6, decimal_places=2)
+    price = models.DecimalField(max_digits=6, decimal_places=2)
 
     def __str__(self):
         return self.title

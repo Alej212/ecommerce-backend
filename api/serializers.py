@@ -6,7 +6,7 @@ class ShoeSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Shoes
-        fields = ['img', 'title', 'money']
+        fields = ['img', 'title', 'price']
 
     def get_img(self, obj):
         request = self.context.get('request')
