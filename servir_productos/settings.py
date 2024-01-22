@@ -55,6 +55,7 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     'https://ecommerce-frontend-murex-ten.vercel.app',
+    'https://localhost:3000',
 ]
 
 
