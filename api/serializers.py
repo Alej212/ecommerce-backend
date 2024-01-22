@@ -1,18 +1,23 @@
 from rest_framework import serializers
-from .models import Shoes
+from .models import Products, Shoes, Sweater, Jacket, Pants
 
-class ShoeSerializer(serializers.ModelSerializer):
-    image = serializers.SerializerMethodField()
-
+class ProductsSerializer(serializers.ModelSerializer):
     class Meta:
+        model = Products
+        fields = ['image', 'title', 'price', 'category']
+
+class ShoesSerializer(ProductsSerializer):
+    class Meta(ProductsSerializer.Meta):
         model = Shoes
-        fields = ['image', 'title', 'price']
 
-    def get_image(self, obj):
-        return obj.image
+class SweaterSerializer(ProductsSerializer):
+    class Meta(ProductsSerializer.Meta):
+        model = Sweater
 
-    # def get_img(self, obj):
-    #     request = self.context.get('request')
-    #     if request is not None:
-    #         return request.build_absolute_uri(obj.img.url)
-    #     return obj.img.url
+class JacketSerializer(ProductsSerializer):
+    class Meta(ProductsSerializer.Meta):
+        model = Jacket
+
+class PantsSerializer(ProductsSerializer):
+    class Meta(ProductsSerializer.Meta):
+        model = Pants
