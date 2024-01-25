@@ -7,6 +7,6 @@ def home(request):
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('products/', include('api.urls')),
+    path('products/', include('products.urls')),
     path('', home)
 ]
