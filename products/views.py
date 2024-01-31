@@ -17,21 +17,45 @@ import json
 
 
 class ShoesList(generics.ListAPIView):
-    queryset = Shoes.objects.all()
     serializer_class = ShoesSerializer
 
+    def get_queryset(self):
+        queryset = Shoes.objects.all()
+        genre = self.request.query_params.get('genre', None)
+        if genre is not None:
+            queryset = queryset.filter(genre=genre)
+        return queryset
+
 class SweaterList(generics.ListAPIView):
-    queryset = Sweaters.objects.all()
     serializer_class = SweatersSerializer
 
+    def get_queryset(self):
+        queryset = Shoes.objects.all()
+        genre = self.request.query_params.get('genre', None)
+        if genre is not None:
+            queryset = queryset.filter(genre=genre)
+        return queryset
+
 class JacketList(generics.ListAPIView):
-    queryset = Jackets.objects.all()
     serializer_class = JacketsSerializer
 
+    def get_queryset(self):
+        queryset = Shoes.objects.all()
+        genre = self.request.query_params.get('genre', None)
+        if genre is not None:
+            queryset = queryset.filter(genre=genre)
+        return queryset
+
 class PantsList(generics.ListAPIView):
-    queryset = Pants.objects.all()
     serializer_class = PantsSerializer
-    
+
+    def get_queryset(self):
+        queryset = Shoes.objects.all()
+        genre = self.request.query_params.get('genre', None)
+        if genre is not None:
+            queryset = queryset.filter(genre=genre)
+        return queryset
+
 class ShoesDetail(APIView):
     def get(self, request, custom_id):
         try:
