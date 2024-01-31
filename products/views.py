@@ -30,7 +30,7 @@ class SweaterList(generics.ListAPIView):
     serializer_class = SweatersSerializer
 
     def get_queryset(self):
-        queryset = Shoes.objects.all()
+        queryset = Sweaters.objects.all()
         genre = self.request.query_params.get('genre', None)
         if genre is not None:
             queryset = queryset.filter(genre=genre)
@@ -40,7 +40,7 @@ class JacketList(generics.ListAPIView):
     serializer_class = JacketsSerializer
 
     def get_queryset(self):
-        queryset = Shoes.objects.all()
+        queryset = Jackets.objects.all()
         genre = self.request.query_params.get('genre', None)
         if genre is not None:
             queryset = queryset.filter(genre=genre)
@@ -50,7 +50,7 @@ class PantsList(generics.ListAPIView):
     serializer_class = PantsSerializer
 
     def get_queryset(self):
-        queryset = Shoes.objects.all()
+        queryset = Pants.objects.all()
         genre = self.request.query_params.get('genre', None)
         if genre is not None:
             queryset = queryset.filter(genre=genre)
